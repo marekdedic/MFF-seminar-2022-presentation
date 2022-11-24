@@ -1,0 +1,397 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+
+\usepackage{polyglossia}
+\usepackage{csquotes}
+\usepackage{bm}
+\usepackage{datetime}
+\usepackage{fontspec}
+\usepackage{microtype}
+\usepackage{color}
+\usepackage{url}
+\usepackage{pgfplots}
+\usepackage{hyperref}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{subcaption}
+\usepackage[backend=biber,style=iso-authoryear,sortlocale=en_US,autolang=other,bibencoding=UTF8]{biblatex}
+\usepackage{booktabs}
+\usepackage{graphics}
+\usepackage{pifont}
+\usepackage{ulem}
+\usepackage{tikz}
+
+\usepgfplotslibrary{fillbetween}
+\usetikzlibrary{patterns}
+
+\addbibresource{zotero.bib}
+
+\setdefaultlanguage{english}
+\setmainfont{TeX Gyre Termes}
+\usetheme{Boadilla}
+\usecolortheme{crane}
+\setbeamertemplate{title page}[default][rounded=true,shadow=false]
+\setbeamertemplate{section in toc}[ball unnumbered]
+\setbeamertemplate{bibliography item}{}
+
+\hypersetup{
+	pdfencoding=auto,
+	unicode=true,
+	citecolor=green,
+	filecolor=blue,
+	linkcolor=red,
+	urlcolor=blue
+}
+
+\makeatletter
+\newcommand*{\currentSection}{\@currentlabelname}
+\makeatother
+
+\newcommand{\mathmat}{\ensuremath{\mathbf}}
+
+\title[Adaptive graph coarsening]
+{
+	Graph Neural Networks for Adaptive Coarsening of Graphs
+}
+
+\newdate{presentation}{24}{11}{2022}
+\date[November 2022]{Machine learning seminar 2022, \displaydate{presentation}}
+
+\author[Marek Dědič]
+{
+	Marek~Dědič\inst{1}\inst{2},
+}
+
+\institute[CTU \& Cisco]
+{
+	\inst{1} Czech Technical University in Prague \and
+	\inst{2} Cisco Systems, Inc.
+}
+
+% Title card
+%\AtBeginSection[]{
+	%\begin{frame}
+		%\vfill
+		%\centering
+		%\begin{beamercolorbox}[sep = 8pt,center,shadow = true,rounded = true]{title}
+			%\usebeamerfont{title}\insertsectionhead\par%
+		%\end{beamercolorbox}
+		%\vfill
+	%\end{frame}
+%}
+
+\AtBeginSection[]{
+	\begin{frame}{\currentSection}
+		\tableofcontents[currentsection]
+	\end{frame}
+}
+
+\begin{document}
+
+\begin{frame}
+	\titlepage
+	\hfill\usebeamerfont{date}\url{marek@dedic.eu}\hspace{1cm}
+	\vspace{0.5cm}
+\end{frame}
+
+\section{Problem introduction}
+
+\begin{frame}
+	\frametitle{Motivation}
+	\begin{itemize}
+	    \item<1-> Network communication $\to$ cybersecurity
+	\end{itemize}
+	\scalebox{0.6}{\input{images/graph}}
+
+	\begin{itemize}
+	    \item <4-> Goal: identification of malicious domains
+	    \item <5-> Currently simple, scalable models
+	    \item <5-> State of the art: GNNs
+	    \item <6-> Problem -- \alert{complexity} required by GNNs on large graphs
+	    \end{itemize}
+\end{frame}
+
+\begin{frame}{Problem introduction}
+	\begin{itemize}
+		\item GNNS on big graphs -- computationally costly and sometimes even unfeasible.
+	    \item Suggested solution: compressing the input graph
+		\item How much can a graph be coarsened?
+		\item Sometimes compressed data \( \implies \) better performace
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Main idea}
+	\centering
+    \input{images/coarsening-illustration}
+\end{frame}
+
+\section{Prior art - the HARP method}
+
+\begin{frame}{HARP - learning on coarser graphs}
+	\begin{itemize}
+		\item HARP - a method for pretraining on simplified graphs
+		\item Simplified graphs as depicted bellow
+		\item Embedding trained first on the coarser graph
+	\end{itemize}
+	\begin{figure}
+		\centering
+		\begin{subfigure}[t]{0.38\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{images/edge_collapsing.png}
+			\caption{Edge collapsing}
+		\end{subfigure}
+		\hspace{2em}
+		\begin{subfigure}[t]{0.38\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{images/star_collapsing.png}
+			\caption{Star collapsing}
+		\end{subfigure}
+		\caption{HARP coarsening algorithm. \footnote{Images from \cite{chen_harp_2018}.}}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{HARP pipeline overview}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{images/harp-overview/harp-overview.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Deep HARP}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/deep-harp/deep-harp.pdf}
+	\end{figure}
+\end{frame}
+
+\section{The performance-complexity trade-off problem}
+
+\begin{frame}{Main idea}
+	\centering
+    \input{images/coarsening-illustration}
+\end{frame}
+
+\begin{frame}{Deep HARP}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.5\textwidth]{images/deep-harp/deep-harp.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Complexity performance trade-off}
+	\input{images/complexity-performance}
+\end{frame}
+
+\begin{frame}{Performance \& Complexity}
+	\begin{itemize}
+		\item Performance = classification accuracy
+	    \item Usually time \& memory complexity
+        \item In business, time translates to cost
+        \begin{itemize}
+            \item More interpretable
+            \item Monthly budget \$100, AWS EKS costs \$0.33/hour
+            \item Therefore daily run can take 10 hours $\to$ select graph size accordingly
+        \end{itemize}
+		\item For simplicity, complexity = node count
+    \end{itemize}
+\end{frame}
+
+\section{Adaptive prolongation}
+
+\begin{frame}{Adaptive prolongation}
+	\begin{itemize}
+		\item Graph prolongation (de-coarsening) micro-stepping
+		\item Guiding the prolongation based on local properties
+		\item Possibly results in different \enquote{model resolution} in different parts of the graph
+		\item Evaluation -- Training a classifier in each (micro) step
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Adaptive prolongation}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.8\textwidth]{images/adaptive-prolongation/adaptive-prolongation.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Adaptive prolongation - experimental verification}
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{images/adaptive-coarsening/adaptive-coarsening.pdf}
+		\caption{Prediction accuracy with guided prolongation.}
+	\end{figure}
+\end{frame}
+
+\section{Alternative approaches to coarsening}
+
+\begin{frame}{HARP coarsening}
+	\begin{figure}
+		\centering
+		\begin{subfigure}[t]{0.38\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{images/edge_collapsing.png}
+			\caption{Edge collapsing}
+		\end{subfigure}
+		\hspace{2em}
+		\begin{subfigure}[t]{0.38\textwidth}
+			\centering
+			\includegraphics[width=\textwidth]{images/star_collapsing.png}
+			\caption{Star collapsing}
+		\end{subfigure}
+		\caption{HARP coarsening algorithm. \footnote{Images from \cite{chen_harp_2018}.}}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Diffusion-based coarsening}
+	\begin{itemize}
+		\item Creating a new edge matrix \( \hat{\mathmat{S}} \)
+		\item Contracting edges \( E \left( G_{\hat{\mathmat{S}}} \right) \cap E \left( G \right) \)
+		\item \( \hat{\mathmat{S}} = \sum_{k = 1}^\infty \theta_k \mathmat{T}^k \)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Diffusion-based coarsening}
+	\begin{itemize}
+		\item \( \hat{\mathmat{S}} = \sum_{k = 1}^\infty \theta_k \mathmat{T}^k \)
+		\item Personalized PageRank
+		\begin{itemize}
+			\item \( \mathmat{T} = \mathmat{A} \mathmat{D}^{-1} \)
+			\item \( \theta_k = \alpha \left( 1 - \alpha \right)^k \)
+		\end{itemize}
+		\item Heat kernel
+		\begin{itemize}
+			\item \( \mathmat{T} = \mathmat{A} \mathmat{D}^{-1} \)
+			\item \( \theta_k = e^{-t} \frac{t^k}{k!} \)
+		\end{itemize}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Evolved coarsening}
+	\begin{itemize}
+		\item A set of atomic coarsenings
+		\item A coarsening candidate = sequence of atomic coarsenings
+		\item Evolved using a simple genetic algorithm
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Experimental comparison of coarsening approaches}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{images/coarsening-algorithms/coarsening-algorithms.pdf}
+		\caption{Prediction accuracy with different algorithms.}
+	\end{figure}
+\end{frame}
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion}
+	\centering
+	\begin{itemize}
+		\item Studying GNN behaviour while coarsening a graph
+		\item The adaptive prolongation approach -- a way of studying such behaviour in detail.
+		\item 3 alternative coarsening strategies
+		\item A new re-formalization of HARP, allowing for a more general approach to graph coarsening
+		\item HARP as a framework for graph reduction
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Future work}
+	\centering
+	\begin{itemize}
+		\item Investigate more datasets
+		\item Surrogate metric for adaptive prolongation
+		\item More thorough exploration of evolved coarsenings
+	\end{itemize}
+\end{frame}
+
+\section{Direct adaptive coarsening}
+
+\begin{frame}{Main idea}
+	\centering
+    \input{images/coarsening-illustration}
+\end{frame}
+
+\begin{frame}{HARP pipeline overview}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{images/harp-overview/harp-overview.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Direct pipeline}
+	\begin{figure}
+		\centering
+		\includegraphics[width=\textwidth]{images/harp-overview-edit.pdf}
+	\end{figure}
+\end{frame}
+
+\begin{frame}{Details}
+    \begin{itemize}
+        \item Base model $\to$ posterior for all nodes
+        \item Similarity measure
+        \item Edge contraction $\to$ graph sequence
+        \item GNN on each graph with label propagation
+    \end{itemize}
+    \vspace{1cm}
+	\centering
+    \scalebox{0.75}{\input{images/graph-sequence}}
+\end{frame}
+
+\section{Theoretical properties of graph coarsening}
+
+\begin{frame}
+	\frametitle{Edge contraction induced hierarchical tree}
+	\centerline{\scalebox{0.75}{\input{images/graph-seq-uncover}}}
+	\centerline{\scalebox{0.75}{\input{images/tree-clustering}}}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Shared prediction induced performance upper bound}
+    \centering{\scalebox{1.2}{\input{images/upper-bound}}}
+\end{frame}
+
+\section{Direct coarsening experiments}
+
+\begin{frame}{Experiment Setup}
+    \begin{itemize}
+        \item Base model: logistic regression
+        \item Similarity measure: KL divergence
+        \item GNN: 2-layer GCN
+        \item Dataset: Cora
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Comparison of Performance Given by Probability Similarities}
+	\centering
+    \input{images/cora-similarities}
+\end{frame}
+
+\section{Conclusion II}
+
+\begin{frame}{Conclusion \& Future work}
+    \begin{itemize}
+        \item Conclusions
+        \begin{itemize}
+            \item Hierarchical tree as a byproduct
+            \item Computationally cheap upper bound
+        \end{itemize}
+        
+        \item Future Work
+        \begin{itemize}
+            \item Run on more datasets
+            \item Run on Cisco datasets
+            \item Investigate the validity of many ad-hoc choices in the algorithm
+        \end{itemize}
+        
+    \end{itemize}
+\end{frame}
+
+%\begin{frame}[shrink=12]{Bibliography}
+    %\printbibliography
+%\end{frame}
+
+\begin{frame}
+    \titlepage
+\end{frame}
+
+\end{document}
