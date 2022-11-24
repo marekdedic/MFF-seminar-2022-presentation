@@ -14,24 +14,25 @@
 \usepgfplotslibrary{patchplots}
 \usepgfplotslibrary{fillbetween}
 \pgfplotsset{%
-layers/standard/.define layer set={%
-    background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
-}{grid style= {/pgfplots/on layer=axis grid},%
-    tick style= {/pgfplots/on layer=axis ticks},%
-    axis line style= {/pgfplots/on layer=axis lines},%
-    label style= {/pgfplots/on layer=axis descriptions},%
-    legend style= {/pgfplots/on layer=axis descriptions},%
-    title style= {/pgfplots/on layer=axis descriptions},%
-    colorbar style= {/pgfplots/on layer=axis descriptions},%
-    ticklabel style= {/pgfplots/on layer=axis tick labels},%
-    axis background@ style={/pgfplots/on layer=axis background},%
-    3d box foreground style={/pgfplots/on layer=axis foreground},%
+    layers/standard/.define layer set={%
+        background,axis background,axis grid,axis ticks,axis lines,axis tick labels,pre main,main,axis descriptions,axis foreground%
+    }{
+        grid style={/pgfplots/on layer=axis grid},%
+        tick style={/pgfplots/on layer=axis ticks},%
+        axis line style={/pgfplots/on layer=axis lines},%
+        label style={/pgfplots/on layer=axis descriptions},%
+        legend style={/pgfplots/on layer=axis descriptions},%
+        title style={/pgfplots/on layer=axis descriptions},%
+        colorbar style={/pgfplots/on layer=axis descriptions},%
+        ticklabel style={/pgfplots/on layer=axis tick labels},%
+        axis background@ style={/pgfplots/on layer=axis background},%
+        3d box foreground style={/pgfplots/on layer=axis foreground},%
     },
 }
 
 \begin{document}
 \begin{tikzpicture}[/tikz/background rectangle/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, draw opacity={1.0}}, show background rectangle]
-\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={1.0mm}, yshift={-1.0mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={Classification accuracy}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
+\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}, align={center}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={1.0mm}, yshift={-1.0mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel={Classification accuracy}, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
     \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.2}, mark={none}, forget plot]
         coordinates {
             (3.330322871980131,49.819412529468536)
@@ -134,7 +135,7 @@ layers/standard/.define layer set={%
             (3.330322871980131,49.819412529468536)
         }
         ;
-    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={75c29ef2-20d3-479c-8a55-1f4c69ab67fb}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={3a1636fe-9a0c-456e-8604-6510e46a2455}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.0;green,0.6056;blue,0.9787}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
@@ -166,7 +167,7 @@ layers/standard/.define layer set={%
         }
         ;
     \addlegendentry {DBLP}
-    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={3ac8e12c-9f05-4b13-8c3f-c396fec64ff8}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addplot[color={rgb,1:red,0.0;green,0.6056;blue,0.9787}, name path={0085475a-25d2-496c-9024-9eb746624fef}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -296,7 +297,7 @@ layers/standard/.define layer set={%
             (2.9542097488921715,34.16000008583069)
         }
         ;
-    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={9d039c54-b0de-4b48-863a-121fdc361235}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={0edd724d-340b-4fd0-910d-439b7151a55c}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
@@ -333,7 +334,7 @@ layers/standard/.define layer set={%
         }
         ;
     \addlegendentry {Cora}
-    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={33c4bb1d-2d8d-47e9-b7c7-6e5862b452a7}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addplot[color={rgb,1:red,0.8889;green,0.4356;blue,0.2781}, name path={7d2c2124-bfd1-4449-b2de-3a70655fbb85}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -435,7 +436,7 @@ layers/standard/.define layer set={%
             (13.255184851217313,36.859999895095825)
         }
         ;
-    \addplot[color={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, name path={d5a3a74f-1f37-4498-adff-d97e4d4db11e}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, name path={5503ce5b-7e5a-4e78-b2de-decb3c7444eb}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
@@ -465,7 +466,7 @@ layers/standard/.define layer set={%
         }
         ;
     \addlegendentry {CiteSeer}
-    \addplot[color={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, name path={0b6a1a04-c212-4b8b-961c-1d142740ac27}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addplot[color={rgb,1:red,0.2422;green,0.6433;blue,0.3044}, name path={9ef32c48-dcbb-4209-96eb-f9d4dff1fff1}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
@@ -474,7 +475,7 @@ layers/standard/.define layer set={%
         }
         ;
 \end{axis}
-\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={77.2mm}, yshift={-1.0mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
+\begin{axis}[point meta max={nan}, point meta min={nan}, legend cell align={left}, legend columns={1}, title={}, title style={at={{(0.5,1)}}, anchor={south}, font={{\fontsize{14 pt}{18.2 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}, align={center}}, legend style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid, fill={rgb,1:red,1.0;green,1.0;blue,1.0}, fill opacity={1.0}, text opacity={1.0}, font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, text={rgb,1:red,0.0;green,0.0;blue,0.0}, cells={anchor={center}}, at={(0.98, 0.02)}, anchor={south east}}, axis background/.style={fill={rgb,1:red,1.0;green,1.0;blue,1.0}, opacity={1.0}}, anchor={north west}, xshift={77.2mm}, yshift={-1.0mm}, width={74.2mm}, height={74.2mm}, scaled x ticks={false}, xlabel={Node count}, x tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, x tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, xlabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, xmajorgrids={true}, xmin={-3.0}, xmax={103.0}, xticklabels={{0.0\%,25.0\%,50.0\%,75.0\%,100.0\%}}, xtick={{0.0,25.0,50.0,75.0,100.0}}, xtick align={inside}, xticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, x grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis x line*={left}, x axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, scaled y ticks={false}, ylabel, y tick style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}}, y tick label style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, opacity={1.0}, rotate={0}}, ylabel style={at={(ticklabel cs:0.5)}, anchor=near ticklabel, at={{(ticklabel cs:0.5)}}, anchor={near ticklabel}, font={{\fontsize{11 pt}{14.3 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, ymajorgrids={true}, ymin={30}, ymax={85}, yticklabels={{30.0\%,40.0\%,50.0\%,60.0\%,70.0\%,80.0\%}}, ytick={{30.0,40.0,50.0,60.0,70.0,80.0}}, ytick align={inside}, yticklabel style={font={{\fontsize{8 pt}{10.4 pt}\selectfont}}, color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, rotate={0.0}}, y grid style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={0.1}, line width={0.5}, solid}, axis y line*={left}, y axis line style={color={rgb,1:red,0.0;green,0.0;blue,0.0}, draw opacity={1.0}, line width={1}, solid}, colorbar={false}]
     \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, fill opacity={0.2}, mark={none}, forget plot]
         coordinates {
             (0.01014455997971088,41.05000019073486)
@@ -569,7 +570,7 @@ layers/standard/.define layer set={%
             (0.01014455997971088,41.05000019073486)
         }
         ;
-    \addplot[color={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, name path={99d3488d-036d-4f10-b168-88d6c57d91f2}, legend image code/.code={{
+    \addplot[color={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, name path={6deb4620-62a0-4d50-a74f-7b4c48589afa}, legend image code/.code={{
     \draw[fill={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
     }}, draw opacity={1.0}, line width={1}, solid]
         table[row sep={\\}]
@@ -599,12 +600,144 @@ layers/standard/.define layer set={%
         }
         ;
     \addlegendentry {PubMed}
-    \addplot[color={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, name path={7da3f2da-f942-4556-acf6-22b37c4890a7}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+    \addplot[color={rgb,1:red,0.7644;green,0.4441;blue,0.8243}, name path={603b97ef-30c2-456b-a2e5-e1c17788b87a}, draw opacity={1.0}, line width={1}, dashed, forget plot]
         table[row sep={\\}]
         {
             \\
             0.0  82.5600004196167  \\
             100.0  82.5600004196167  \\
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.1049317943336831,68.17708492279053)
+            (0.6295907660020986,68.07291865348816)
+            (5.876180482686254,67.23958432674408)
+            (11.12277019937041,66.97916746139526)
+            (16.369359916054563,66.56250059604645)
+            (21.61594963273872,65.83333373069763)
+            (26.862539349422875,66.61458313465118)
+            (32.10912906610703,66.66666746139526)
+            (37.355718782791186,66.97916746139526)
+            (42.60230849947534,67.44791746139526)
+            (47.8488982161595,66.77083313465118)
+            (53.09548793284365,67.08333313465118)
+            (58.34207764952781,67.23958373069763)
+            (63.588667366211965,68.12499940395355)
+            (68.83525708289612,67.81250059604645)
+            (74.08184679958028,66.51041626930237)
+            (79.32843651626443,67.91666686534882)
+            (84.57502623294859,69.16666626930237)
+            (89.82161594963274,69.84374940395355)
+            (95.0682056663169,69.375)
+            (100.0,69.79166626930237)
+            (100.0,68.72145668668256)
+            (95.0682056663169,67.39857663691858)
+            (89.82161594963274,68.51134729004303)
+            (84.57502623294859,68.22211878105942)
+            (79.32843651626443,66.61284878841562)
+            (74.08184679958028,63.35613518794333)
+            (68.83525708289612,65.92979966209828)
+            (63.588667366211965,66.2583769029661)
+            (58.34207764952781,64.52269486505674)
+            (53.09548793284365,65.18468977580774)
+            (47.8488982161595,64.70493345884347)
+            (42.60230849947534,66.37068831261526)
+            (37.355718782791186,65.8486935444466)
+            (32.10912906610703,64.59785202937648)
+            (26.862539349422875,64.67432901127842)
+            (21.61594963273872,61.738171926029125)
+            (16.369359916054563,63.9897731505982)
+            (11.12277019937041,65.22234597623735)
+            (5.876180482686254,65.92999923463529)
+            (0.6295907660020986,67.57881276908685)
+            (0.1049317943336831,68.01238170474718)
+            (0.1049317943336831,68.17708492279053)
+        }
+        ;
+    \addplot+[line width={0}, draw opacity={0}, fill={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, fill opacity={0.2}, mark={none}, forget plot]
+        coordinates {
+            (0.1049317943336831,68.17708492279053)
+            (0.6295907660020986,68.07291865348816)
+            (5.876180482686254,67.23958432674408)
+            (11.12277019937041,66.97916746139526)
+            (16.369359916054563,66.56250059604645)
+            (21.61594963273872,65.83333373069763)
+            (26.862539349422875,66.61458313465118)
+            (32.10912906610703,66.66666746139526)
+            (37.355718782791186,66.97916746139526)
+            (42.60230849947534,67.44791746139526)
+            (47.8488982161595,66.77083313465118)
+            (53.09548793284365,67.08333313465118)
+            (58.34207764952781,67.23958373069763)
+            (63.588667366211965,68.12499940395355)
+            (68.83525708289612,67.81250059604645)
+            (74.08184679958028,66.51041626930237)
+            (79.32843651626443,67.91666686534882)
+            (84.57502623294859,69.16666626930237)
+            (89.82161594963274,69.84374940395355)
+            (95.0682056663169,69.375)
+            (100.0,69.79166626930237)
+            (100.0,70.86187585192218)
+            (95.0682056663169,71.35142336308142)
+            (89.82161594963274,71.17615151786407)
+            (84.57502623294859,70.11121375754531)
+            (79.32843651626443,69.22048494228201)
+            (74.08184679958028,69.66469735066141)
+            (68.83525708289612,69.69520152999462)
+            (63.588667366211965,69.991621904941)
+            (58.34207764952781,69.95647259633853)
+            (53.09548793284365,68.98197649349463)
+            (47.8488982161595,68.8367328104589)
+            (42.60230849947534,68.52514661017527)
+            (37.355718782791186,68.10964137834392)
+            (32.10912906610703,68.73548289341404)
+            (26.862539349422875,68.55483725802395)
+            (21.61594963273872,69.92849553536614)
+            (16.369359916054563,69.1352280414947)
+            (11.12277019937041,68.73598894655318)
+            (5.876180482686254,68.54916941885287)
+            (0.6295907660020986,68.56702453788947)
+            (0.1049317943336831,68.34178814083387)
+            (0.1049317943336831,68.17708492279053)
+        }
+        ;
+    \addplot[color={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, name path={1f874307-2ace-405a-9db9-3fe295844abd}, legend image code/.code={{
+    \draw[fill={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, fill opacity={0.2}] (0cm,-0.1cm) rectangle (0.6cm,0.1cm);
+    }}, draw opacity={1.0}, line width={1}, solid]
+        table[row sep={\\}]
+        {
+            \\
+            0.1049317943336831  68.17708492279053  \\
+            0.6295907660020986  68.07291865348816  \\
+            5.876180482686254  67.23958432674408  \\
+            11.12277019937041  66.97916746139526  \\
+            16.369359916054563  66.56250059604645  \\
+            21.61594963273872  65.83333373069763  \\
+            26.862539349422875  66.61458313465118  \\
+            32.10912906610703  66.66666746139526  \\
+            37.355718782791186  66.97916746139526  \\
+            42.60230849947534  67.44791746139526  \\
+            47.8488982161595  66.77083313465118  \\
+            53.09548793284365  67.08333313465118  \\
+            58.34207764952781  67.23958373069763  \\
+            63.588667366211965  68.12499940395355  \\
+            68.83525708289612  67.81250059604645  \\
+            74.08184679958028  66.51041626930237  \\
+            79.32843651626443  67.91666686534882  \\
+            84.57502623294859  69.16666626930237  \\
+            89.82161594963274  69.84374940395355  \\
+            95.0682056663169  69.375  \\
+            100.0  69.79166626930237  \\
+        }
+        ;
+    \addlegendentry {Twitch-PT}
+    \addplot[color={rgb,1:red,0.6755;green,0.5557;blue,0.0942}, name path={7d4b2d13-01b7-4a28-9622-9ec04e04857f}, draw opacity={1.0}, line width={1}, dashed, forget plot]
+        table[row sep={\\}]
+        {
+            \\
+            0.0  70.15625  \\
+            100.0  70.15625  \\
         }
         ;
 \end{axis}
